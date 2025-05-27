@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "dotenv": "^16.5.0",
-    "playwright": "^1.52.0"
+    "playwright": "^1.52.0",
+    "zod": "^3.25.30"
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0",
