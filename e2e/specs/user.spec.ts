@@ -4,7 +4,9 @@ import { env } from '../../src/config/env';
 import { validUser, validRegister, invalidRegister } from '../fixtures/testUsers';
 import { logger } from '../utils/logger';
 import { expectValidUserResponse } from '../utils/assertions';
-import users from '../fixtures/users.json';
+// import users from '../fixtures/users.json';
+import users from '../fixtures/envUsers';
+import { userFactory } from '../fixtures/testUsers';
 
 // Data-driven tests
 test.describe('Data-driven user creation', () => {
@@ -81,6 +83,14 @@ test.describe('CRUD', () => {
   test('Get non-existent user returns 404', async () => {
     const res = await userApi.getUserById(99999, false);
     expect(res.status()).toBe(404);
+  });
+
+  test('Create and cleanup user', async () => {
+    const user = userFactory();
+    const createRes = await userApi.createUser(user);
+    const created = await createRes.json();
+    // ...test logic...
+    await userApi.deleteUser(created.id, false);
   });
 
   test('Create User', async () => {
@@ -324,3 +334,4 @@ test.describe('Advanced & Edge Cases', () => {
     // expect(res.status()).toBe(200);
   });
 });
+

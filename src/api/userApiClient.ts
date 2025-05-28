@@ -1,4 +1,6 @@
 import { APIRequestContext, APIResponse } from '@playwright/test';
+import { retry } from '../../e2e/utils/assertions';
+
 import {
   CreateUserRequest,
   UpdateUserRequest,
@@ -17,8 +19,10 @@ export class UserApiClient {
   }
 
   async getUsers(page = 1, throwOnError = true): Promise<APIResponse> {
-    const response = await this.request.get(`${this.baseUrl}/users?page=${page}`);
-    return this.handleResponse(response, throwOnError);
+    return retry(() =>
+      this.request.get(`${this.baseUrl}/users?page=${page}`)
+        .then(res => this.handleResponse(res, throwOnError))
+    );
   }
 
   async getUserById(id: number, throwOnError = true): Promise<APIResponse> {

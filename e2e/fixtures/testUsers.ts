@@ -11,3 +11,11 @@ export const validRegister = {
 export const invalidRegister = {
   email: 'sydney@fife',
 };
+
+export function userFactory(overrides = {}) {
+  return {
+    name: `user_${Math.random().toString(36).substring(2, 8)}`,
+    job: 'tester',
+    ...overrides,
+  };
+}
