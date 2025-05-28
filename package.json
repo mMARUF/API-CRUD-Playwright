@@ -8,5 +8,9 @@
     "@playwright/test": "^1.52.0",
     "@types/node": "^22.15.21"
   },
-  "scripts": {}
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "format:check": "prettier --check .",
+    "build": "tsc"
+  }
 }

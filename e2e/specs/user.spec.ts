@@ -59,7 +59,7 @@ test.describe('CRUD', () => {
     await apiContext.dispose();
   });
 
-  test('Get Users (page 1)', async () => {
+  test('Get Users (page 1) @smoke', async () => {
     const response = await userApi.getUsers(1);
     expect(response.status()).toBe(200);
     logger.info('Fetched users page 1');
@@ -211,7 +211,7 @@ test.describe('Auth', () => {
     expect(res.status()).toBe(400);
   });
 
-  test('Login', async () => {
+  test('Login @smoke', async () => {
     const response = await userApi.login(validRegister);
     expect(response.ok()).toBeTruthy();
     logger.info('Login successful');
