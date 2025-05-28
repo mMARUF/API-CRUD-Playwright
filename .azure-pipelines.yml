@@ -25,26 +25,24 @@ stages:
             displayName: 'Install Node.js'
 
           - script: |
+              cd API-CRUD-Test-Playwright
               npm ci
             displayName: 'Install dependencies (with cache)'
 
           - script: |
+              cd API-CRUD-Test-Playwright
               npm run lint
             displayName: 'Lint code'
 
           - script: |
+              cd API-CRUD-Test-Playwright
               npm run format:check
             displayName: 'Check formatting'
 
           - script: |
+              cd API-CRUD-Test-Playwright
               npm run build
             displayName: 'TypeScript compile'
-
-          - task: PublishBuildArtifacts@1
-            inputs:
-              PathtoPublish: '$(Build.SourcesDirectory)'
-              ArtifactName: 'drop'
-            displayName: 'Publish build artifacts'
 
   - stage: Test
     displayName: 'Test Stage'
@@ -60,31 +58,31 @@ stages:
               versionSpec: '$(NODE_VERSION)'
             displayName: 'Install Node.js'
 
-          - download: current
-            artifact: drop
-
           - script: |
+              cd API-CRUD-Test-Playwright
               npm ci
             displayName: 'Install dependencies'
 
           - script: |
+              cd API-CRUD-Test-Playwright
               TEST_ENV=$(TEST_ENV) npx playwright install --with-deps
             displayName: 'Install Playwright browsers'
 
           - script: |
+              cd API-CRUD-Test-Playwright
               TEST_ENV=$(TEST_ENV) npx playwright test --reporter=dot,html
             displayName: 'Run Playwright tests'
 
           - task: PublishTestResults@2
             condition: succeededOrFailed()
             inputs:
-              testResultsFiles: '**/test-results/*.xml'
+              testResultsFiles: 'API-CRUD-Test-Playwright/test-results/*.xml'
               testRunTitle: 'Playwright API Tests'
             displayName: 'Publish test results'
 
           - task: PublishBuildArtifacts@1
             inputs:
-              PathtoPublish: 'playwright-report'
+              PathtoPublish: 'API-CRUD-Test-Playwright/playwright-report'
               ArtifactName: 'playwright-report'
             displayName: 'Publish Playwright HTML report'
 
@@ -102,12 +100,21 @@ stages:
           runOnce:
             deploy:
               steps:
+                - checkout: self
                 - script: echo "Deploying to test environment..."
                   displayName: 'Deploy step (replace with real deployment)'
 
                 - script: |
+                    cd API-CRUD-Test-Playwright
+                    npm ci
+                  displayName: 'Install dependencies'
+
+                - script: |
                     TEST_ENV=test npx playwright test --grep @smoke
                   displayName: 'Run smoke tests'
+                  workingDirectory: API-CRUD-Test-Playwright
+
+      # Manual approval for production is handled via environment approval in Azure DevOps UI
 
       - deployment: DeployToProd
         displayName: 'Deploy to Production'
@@ -120,15 +127,16 @@ stages:
           runOnce:
             deploy:
               steps:
+                - checkout: self
                 - script: echo "Deploying to production environment..."
                   displayName: 'Deploy step (replace with real deployment)'
 
                 - script: |
+                    cd API-CRUD-Test-Playwright
+                    npm ci
+                  displayName: 'Install dependencies'
+
+                - script: |
                     TEST_ENV=prod npx playwright test --grep @smoke
                   displayName: 'Run smoke tests'
-
-                - task: ManualValidation@0
-                  inputs:
-                    notifyUsers: 'user@yourcompany.com'
-                    instructions: 'Approve production deployment'
-                  displayName: 'Manual approval for production'
+                  workingDirectory: API-CRUD-Test-Playwright

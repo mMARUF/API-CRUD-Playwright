@@ -1,14 +1,17 @@
-import { APIRequestContext, APIResponse } from '@playwright/test';
-import { retry } from '../../e2e/utils/assertions';
+import { APIRequestContext, APIResponse } from "@playwright/test";
+import { retry } from "../../e2e/utils/assertions";
 
 import {
   CreateUserRequest,
   UpdateUserRequest,
   RegisterRequest,
-} from '../models/user';
+} from "../models/user";
 
 export class UserApiClient {
-  constructor(private request: APIRequestContext, private baseUrl: string) {}
+  constructor(
+    private request: APIRequestContext,
+    private baseUrl: string,
+  ) {}
 
   private async handleResponse(response: APIResponse, throwOnError = true) {
     if (throwOnError && !response.ok()) {
@@ -20,8 +23,9 @@ export class UserApiClient {
 
   async getUsers(page = 1, throwOnError = true): Promise<APIResponse> {
     return retry(() =>
-      this.request.get(`${this.baseUrl}/users?page=${page}`)
-        .then(res => this.handleResponse(res, throwOnError))
+      this.request
+        .get(`${this.baseUrl}/users?page=${page}`)
+        .then((res) => this.handleResponse(res, throwOnError)),
     );
   }
 
@@ -30,18 +34,33 @@ export class UserApiClient {
     return this.handleResponse(response, throwOnError);
   }
 
-  async createUser(data: CreateUserRequest, throwOnError = true): Promise<APIResponse> {
+  async createUser(
+    data: CreateUserRequest,
+    throwOnError = true,
+  ): Promise<APIResponse> {
     const response = await this.request.post(`${this.baseUrl}/users`, { data });
     return this.handleResponse(response, throwOnError);
   }
 
-  async updateUser(id: number, data: UpdateUserRequest, throwOnError = true): Promise<APIResponse> {
-    const response = await this.request.put(`${this.baseUrl}/users/${id}`, { data });
+  async updateUser(
+    id: number,
+    data: UpdateUserRequest,
+    throwOnError = true,
+  ): Promise<APIResponse> {
+    const response = await this.request.put(`${this.baseUrl}/users/${id}`, {
+      data,
+    });
     return this.handleResponse(response, throwOnError);
   }
 
-  async patchUser(id: number, data: Partial<UpdateUserRequest>, throwOnError = true): Promise<APIResponse> {
-    const response = await this.request.patch(`${this.baseUrl}/users/${id}`, { data });
+  async patchUser(
+    id: number,
+    data: Partial<UpdateUserRequest>,
+    throwOnError = true,
+  ): Promise<APIResponse> {
+    const response = await this.request.patch(`${this.baseUrl}/users/${id}`, {
+      data,
+    });
     return this.handleResponse(response, throwOnError);
   }
 
@@ -50,12 +69,20 @@ export class UserApiClient {
     return this.handleResponse(response, throwOnError);
   }
 
-  async register(data: RegisterRequest, throwOnError = true): Promise<APIResponse> {
-    const response = await this.request.post(`${this.baseUrl}/register`, { data });
+  async register(
+    data: RegisterRequest,
+    throwOnError = true,
+  ): Promise<APIResponse> {
+    const response = await this.request.post(`${this.baseUrl}/register`, {
+      data,
+    });
     return this.handleResponse(response, throwOnError);
   }
 
-  async login(data: RegisterRequest, throwOnError = true): Promise<APIResponse> {
+  async login(
+    data: RegisterRequest,
+    throwOnError = true,
+  ): Promise<APIResponse> {
     const response = await this.request.post(`${this.baseUrl}/login`, { data });
     return this.handleResponse(response, throwOnError);
   }

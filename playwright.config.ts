@@ -1,13 +1,11 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from "@playwright/test";
 
 // Import environment variables from .env file
-import * as dotenv from 'dotenv';
+import * as dotenv from "dotenv";
 dotenv.config();
 
-
-
 export default defineConfig({
-  testDir: './e2e/specs',
+  testDir: "./e2e/specs",
   timeout: 30 * 1000,
   expect: {
     timeout: 5000,
@@ -21,23 +19,23 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['list'], ['html', { open: 'never' }]],
+  reporter: [["list"], ["html", { open: "" }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    baseURL: process.env.BASE_URL || 'https://reqres.in/api',
+    baseURL: process.env.BASE_URL || "https://reqres.in/api",
     extraHTTPHeaders: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'x-api-key': process.env.API_KEY || 'reqres-free-v1',
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      "x-api-key": process.env.API_KEY || "reqres-free-v1",
     },
-    trace: 'on-first-retry',
+    trace: "on-first-retry",
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
     },
 
     // {

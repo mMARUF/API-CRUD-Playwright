@@ -1,0 +1,74 @@
+[2025-05-27T15:57:36.564Z] [INFO] Register unsuccessful as expected
+[2025-05-27T15:57:36.567Z] [INFO] Updated user id=2
+[2025-05-27T15:57:37.501Z] [INFO] Fetched users page 1
+[2025-05-27T15:57:37.919Z] [INFO] Fetched user id=2
+[2025-05-27T15:57:38.225Z] [INFO] Login successful
+[2025-05-27T15:57:38.425Z] [INFO] Created user
+[2025-05-27T15:57:38.432Z] [INFO] Patched user id=2
+[2025-05-27T15:57:38.627Z] [INFO] Login unsuccessful as expected
+[2025-05-27T15:57:38.851Z] [INFO] Deleted user id=2
+[2025-05-27T15:57:40.503Z] [INFO] Registered user
+[2025-05-27T16:00:46.746Z] [INFO] Registered user
+[2025-05-27T16:00:47.152Z] [INFO] Register unsuccessful as expected
+[2025-05-27T16:00:47.588Z] [INFO] Updated user id=2
+[2025-05-27T16:00:47.663Z] [INFO] Fetched users page 1
+[2025-05-27T16:00:47.815Z] [INFO] Fetched user id=2
+[2025-05-27T16:00:48.786Z] [INFO] Login successful
+[2025-05-27T16:00:49.092Z] [INFO] Created user
+[2025-05-27T16:00:49.209Z] [INFO] Login unsuccessful as expected
+[2025-05-27T16:00:49.506Z] [INFO] Patched user id=2
+[2025-05-27T16:00:49.914Z] [INFO] Deleted user id=2
+[2025-05-27T16:03:07.239Z] [INFO] Registered user
+[2025-05-27T16:03:07.666Z] [INFO] Register unsuccessful as expected
+[2025-05-27T16:03:08.076Z] [INFO] Updated user id=2
+[2025-05-27T16:03:08.518Z] [INFO] Fetched users page 1
+[2025-05-27T16:03:08.669Z] [INFO] Fetched user id=2
+[2025-05-27T16:03:09.298Z] [INFO] Login successful
+[2025-05-27T16:03:09.699Z] [INFO] Login unsuccessful as expected
+[2025-05-27T16:03:09.913Z] [INFO] Patched user id=2
+[2025-05-27T16:03:10.045Z] [INFO] Created user
+[2025-05-27T16:03:10.307Z] [INFO] Deleted user id=2
+[2025-05-27T16:13:34.383Z] [INFO] Registered user
+[2025-05-27T16:13:34.818Z] [INFO] Register unsuccessful as expected
+[2025-05-27T16:13:34.916Z] [INFO] Fetched users page 1
+[2025-05-27T16:13:34.920Z] [INFO] Updated user id=2
+[2025-05-27T16:13:35.069Z] [INFO] Fetched user id=2
+[2025-05-27T16:13:36.505Z] [INFO] Login successful
+[2025-05-27T16:13:36.742Z] [INFO] Created user
+[2025-05-27T16:13:36.832Z] [INFO] Patched user id=2
+[2025-05-27T16:13:36.923Z] [INFO] Login unsuccessful as expected
+[2025-05-27T16:13:37.233Z] [INFO] Deleted user id=2
+[2025-05-28T01:02:12.913Z] [INFO] Registered user
+[2025-05-28T01:02:13.279Z] [INFO] Register unsuccessful as expected
+[2025-05-28T01:02:13.683Z] [INFO] Updated user id=2
+[2025-05-28T01:02:14.137Z] [INFO] Fetched users page 1
+[2025-05-28T01:02:14.184Z] [INFO] Fetched user id=2
+[2025-05-28T01:02:14.716Z] [INFO] Login successful
+[2025-05-28T01:02:15.072Z] [INFO] Login unsuccessful as expected
+[2025-05-28T01:02:15.243Z] [INFO] Patched user id=2
+[2025-05-28T01:02:15.630Z] [INFO] Created user
+[2025-05-28T01:02:15.630Z] [INFO] Deleted user id=2
+[2025-05-28T01:19:50.422Z] [INFO] Fetched users page 1
+[2025-05-28T01:19:50.904Z] [INFO] Login successful
+[2025-05-28T01:21:10.409Z] [INFO] Fetched users page 1
+[2025-05-28T01:21:10.976Z] [INFO] Login successful
+[2025-05-28T04:31:48.470Z] [INFO] Registered user
+[2025-05-28T04:31:48.943Z] [INFO] Register unsuccessful as expected
+[2025-05-28T04:31:49.554Z] [INFO] Updated user id=2
+[2025-05-28T04:31:49.934Z] [INFO] Fetched users page 1
+[2025-05-28T04:31:50.029Z] [INFO] Fetched user id=2
+[2025-05-28T04:31:50.852Z] [INFO] Login successful
+[2025-05-28T04:31:51.363Z] [INFO] Login unsuccessful as expected
+[2025-05-28T04:31:51.498Z] [INFO] Patched user id=2
+[2025-05-28T04:31:51.927Z] [INFO] Created user
+[2025-05-28T04:31:51.955Z] [INFO] Deleted user id=2
+[2025-05-28T04:33:13.319Z] [INFO] Fetched users page 1
+[2025-05-28T04:33:13.381Z] [INFO] Fetched user id=2
+[2025-05-28T04:33:14.719Z] [INFO] Created user
+[2025-05-28T04:33:15.256Z] [INFO] Patched user id=2
+[2025-05-28T04:33:15.770Z] [INFO] Deleted user id=2
+[2025-05-28T04:33:16.293Z] [INFO] Updated user id=2
+[2025-05-28T04:33:30.585Z] [INFO] Registered user
+[2025-05-28T04:33:30.669Z] [INFO] Login unsuccessful as expected
+[2025-05-28T04:33:31.054Z] [INFO] Register unsuccessful as expected
+[2025-05-28T04:33:31.719Z] [INFO] Login successful
